@@ -6,7 +6,10 @@ import React from "react";
 const Header = ({ children, className }: HeaderProps) => {
   return (
     <div className={cn(className, "header")}>
-      <Link href={"/"} className="flex items-center justify-center gap-1">
+      <Link
+        href={"/"}
+        className="flex items-center gap-1 md:flex-1"
+      >
         <Image
           src={"/pages.svg"}
           alt="logo"

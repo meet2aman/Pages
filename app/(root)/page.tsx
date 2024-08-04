@@ -2,7 +2,7 @@ import AddDocumentBtn from "@/components/custom/AddDocumentBtn";
 import Header from "@/components/custom/Header";
 import ShinyButton from "@/components/magicui/shiny-button";
 import { SignedIn, UserButton } from "@clerk/nextjs";
-import { currentUser, EmailAddress } from "@clerk/nextjs/server";
+import { currentUser } from "@clerk/nextjs/server";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 
