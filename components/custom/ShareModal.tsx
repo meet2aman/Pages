@@ -18,6 +18,7 @@ import { Input } from "../ui/input";
 import UserTypeSelector from "./UserTypeSelector";
 import { Loader2 } from "lucide-react";
 import Collaborators from "./Collaborators";
+import { updateDocumentAccesses } from "@/lib/actions/room.actions";
 
 const ShareModal = ({
   roomId,
@@ -31,7 +32,16 @@ const ShareModal = ({
   const [email, setEmail] = React.useState("");
   const [userType, setUserType] = React.useState<UserType>("viewer");
 
-  const shareDocumentHandler = async () => {};
+  const shareDocumentHandler = async () => {
+    setIsLoading(true);
+    await updateDocumentAccesses({
+      roomId,
+      email,
+      userType: userType as UserType,
+      updatedBy: user.info,
+    });
+    setIsLoading(false);
+  };
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>

@@ -1,5 +1,7 @@
 import AddDocumentBtn from "@/components/custom/AddDocumentBtn";
+import { DeleteModal } from "@/components/custom/DeleteModal";
 import Header from "@/components/custom/Header";
+import Notifications from "@/components/custom/Notifications";
 import { getAllDocument } from "@/lib/actions/room.actions";
 import { dateConverter } from "@/lib/utils";
 import { SignedIn, UserButton } from "@clerk/nextjs";
@@ -14,18 +16,12 @@ export default async function Home() {
   const roomDocuments = await getAllDocument(
     clerkUser?.emailAddresses[0]?.emailAddress,
   );
-  
 
   return (
     <main className="home-container">
       <Header className="sticky left-0 top-0">
         <div className="flex items-center gap-2 lg:gap-4">
-          <Image
-            src={"/assets/icons/bell.svg"}
-            alt={"bell-icon"}
-            width={30}
-            height={30}
-          />
+          <Notifications />
           <SignedIn>
             <UserButton />
           </SignedIn>
@@ -62,6 +58,7 @@ export default async function Home() {
                     </p>
                   </div>
                 </Link>
+                <DeleteModal roomId={id} />
               </li>
             ))}
           </ul>
@@ -79,7 +76,6 @@ export default async function Home() {
             userId={clerkUser.id}
             email={clerkUser.emailAddresses[0].emailAddress}
           />
-          kjbhvhk
         </div>
       )}
     </main>

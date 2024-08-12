@@ -3,6 +3,11 @@ import React, { useState } from "react";
 import UserTypeSelector from "./UserTypeSelector";
 import { setUser } from "@sentry/nextjs";
 import { Button } from "../ui/button";
+import {
+  removeCollaborators,
+  updateDocument,
+  updateDocumentAccesses,
+} from "@/lib/actions/room.actions";
 
 const Collaborators = ({
   collaborator,
@@ -15,8 +20,21 @@ const Collaborators = ({
   const [isLoading, setIsLoading] = useState(false);
   console.log(creatorId, collaborator.id);
 
-  const shareDocumentHandler = async (type: string) => {};
-  const removeCollaboratorHandler = async (email: string) => {};
+  const shareDocumentHandler = async (type: string) => {
+    setIsLoading(true);
+    await updateDocumentAccesses({
+      roomId,
+      email,
+      userType: type as UserType,
+      updatedBy: user,
+    });
+    setIsLoading(false);
+  };
+  const removeCollaboratorHandler = async (email: string) => {
+    setIsLoading(true);
+    await removeCollaborators({ email, roomId });
+    setIsLoading(false);
+  };
 
   return (
     <li className="flex items-center justify-between gap-2 py-3">
