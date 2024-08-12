@@ -43,27 +43,26 @@ export const DeleteModal = ({ roomId }: DeleteModalProps) => {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <TooltipProvider>
+        <Button className="min-w-9 rounded-full bg-transparent">
+          <Image
+            src="/assets/icons/delete.svg"
+            alt="delete"
+            width={20}
+            height={20}
+            className="mt-1"
+          />
+        </Button>
+        {/* <TooltipProvider>
           <Tooltip>
-            <TooltipTrigger asChild>
-              <Button className="min-w-9 rounded-full bg-transparent">
-                <Image
-                  src="/assets/icons/delete.svg"
-                  alt="delete"
-                  width={20}
-                  height={20}
-                  className="mt-1"
-                />
-              </Button>
-            </TooltipTrigger>
+            <TooltipTrigger></TooltipTrigger>
             <TooltipContent
               className="rounded-[5px] bg-slate-200"
               side="bottom"
             >
-              <p className="text-xs text-black ">Delete</p>
+              <p className="text-xs text-black">Delete</p>
             </TooltipContent>
           </Tooltip>
-        </TooltipProvider>
+        </TooltipProvider> */}
       </DialogTrigger>
       <DialogContent className="shad-dialog">
         <DialogHeader>

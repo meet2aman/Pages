@@ -1,7 +1,7 @@
 import "@/app/globals.css";
 import { Inter as FontSans } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
-import { dark } from "@clerk/themes";
+import { dark, neobrutalism } from "@clerk/themes";
 import { cn } from "@/lib/utils";
 import { Metadata } from "next";
 import Provider from "./Provider";
@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <ClerkProvider
       appearance={{
-        baseTheme: dark,
+
         variables: {
           colorPrimary: "#3371FF",
           fontSize: "13px",
@@ -38,7 +38,7 @@ export default function RootLayout({
         <body
           className={cn(
             "min-h-screen bg-background font-sans antialiased",
-            fontSans.variable
+            fontSans.variable,
           )}
         >
           <Provider>{children}</Provider>

@@ -266,6 +266,10 @@
   background: #0b1527;
 }
 
+.cl-internal-1dauvpw {
+  display: none !important;
+}
+
 /* ======================== Liveblocks Override */
 .lb-root {
   --lb-accent-subtle: #0b1527;
